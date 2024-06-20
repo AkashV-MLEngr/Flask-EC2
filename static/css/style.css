@@ -1,0 +1,449 @@
+  body{
+        overflow: hidden;
+    }
+    #firstsec{
+        background-color: #F8FAFB;
+        height: 100vh;
+    }
+    .title{
+        font-size: 44px;
+        line-height: 60px;
+        font-weight: 600;
+        color: #0089EC;
+        font-family: 'Montserrat', sans-serif;
+        position: relative;
+        top: 90px;
+        left: 85px;
+    }
+    .companyLogo{
+    width: 224px;
+    position: relative;
+    top: 30px;
+    left: 25px;
+    }
+    .manimg{
+    width: 550px;
+    height: 633px;
+    left: 210px;
+    position: relative;
+    top: 140px;
+    }
+    .loginSec{
+        padding: 30px;
+        margin: 150px auto;
+    }
+    .loginHeading{
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 600;
+        color: #333333;
+        position: relative;
+        bottom: 35px;
+        left: 50px;
+        font-family: 'Montserrat', sans-serif;
+}
+.login_form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .form {
+        width: 25em;
+        padding: 2em;
+    }
+.container{
+    position: relative;
+    max-width: 340px;
+    right: 60px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: #fff;
+}
+.container .input-box{
+    position: relative;
+    height: 50px;
+}
+.input-box input{
+    position: absolute;
+    height: 48px;
+    width: 430px;
+    outline: none;
+    border: 0px;
+    background: #F5F7F8;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 6px;
+    padding: 0 35px 0 15px;
+    transition: all 0.2s linear;
+}
+.input-box input:focus{
+    border: solid 1px #4070F4;
+}
+input:is(:focus, :valid){
+    border-color: #4070F4;
+}
+.input-box :is(label, i){
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    transition: all 0.2s linear;
+}
+.input-box label{
+    left: 15px;
+    pointer-events: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+input:is(:focus, :valid) ~ label{
+    color: #4070F4;
+    top: 0;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #fff;
+}
+.input-box #hideIcon{
+    right: -120px;
+    cursor: pointer;
+    font-size: 20px;
+}
+input:is(:focus, :valid) ~ i{
+    color: #4070F4;
+}
+.forgetBtn{
+position: absolute;
+right: -110px;
+font-family: 'Montserrat', sans-serif;
+}
+canvas {
+        pointer-events: none;
+    }
+    #caput {
+    border: 1px solid #555555;
+    width: 430px;
+    border-radius: 4px;
+    text-align: center;
+    border-style: dashed;
+    position: absolute;
+    }
+    #captcha{
+        font-family: 'Montserrat', sans-serif;
+    }
+#refresh{
+    top: 9px;
+    position: absolute;
+    left: 385px;
+    width: 37px;
+    height: 31px;
+    background: #555555;
+    border: none;
+}
+.arrowrotate{
+    position: relative;
+    font-size: 18px;
+    font-weight: 100;
+    right: 4px;
+    bottom: 0px;
+    color: #fff;
+transition : 0.3s;
+}
+.arrowrotate:hover{
+transform: rotate(180deg);
+transition : 0.3s;
+}
+.form_button {
+    width: 430px;
+    height: 48px;
+    border-radius: 4px;
+    transition: .4s;
+    margin-top: 2.5em;
+    background: #0075FF;
+    color: #FFFFFF;
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 26px;
+    font-family: 'Montserrat', sans-serif;
+    }
+    .form_button:hover{
+        background: #0A65CE;
+        transition: .4s;
+    }
+
+/* Responsive for Login */
+@media only screen and (max-width: 320px) {
+
+#firstsec {
+    height: auto;
+    }
+.companyLogo {
+    width: 130px;
+}
+.title {
+    font-size: 19px;
+    line-height: 32px;
+    top: 65px;
+    left: 0;
+    text-align : center;
+}
+.manimg {
+    width: 130px;
+     height: auto;
+    left: 100px;
+    position: relative;
+    top: 67px;
+}
+.login_form {
+height : auto;
+display: block;
+}
+.loginHeading {
+    font-size: 20px;
+    line-height: 21px;
+    bottom: 13px;
+}
+.input-box input {
+    height: 48px;
+    margin-left: 35px;
+    width: auto;
+}
+.input-box label {
+    margin-left: 35px;
+    }
+    #caput {
+    width: auto;
+    margin-left: 85px;
+    padding-left: 15px;
+    }
+    .form_button {
+    width: 200px;
+    height: 38px;
+    font-size: 16px;
+    margin-left: 55px;
+
+    }
+    .input-box #hideIcon {
+    right: -60px;
+    }
+    #refresh {
+    left: 240px;
+    }
+    .forgetBtn{
+    right: -60px;
+    font-size: 12px;
+    }
+    .form {
+    width: 19em;
+    }
+}
+@media (min-width: 321px) and (max-width: 375px) {
+
+#firstsec {
+    height: auto;
+    }
+.companyLogo {
+    width: 130px;
+}
+.title {
+    font-size: 19px;
+    line-height: 32px;
+    top: 65px;
+    left: 0;
+    text-align : center;
+}
+.manimg {
+    width: 130px;
+     height: auto;
+    left: 100px;
+    position: relative;
+    top: 67px;
+}
+.login_form {
+height : auto;
+display: block;
+}
+.loginHeading {
+    font-size: 20px;
+    line-height: 21px;
+    bottom: 13px;
+}
+.input-box input {
+    height: 48px;
+    margin-left: 65px;
+    width: auto;
+}
+.input-box label {
+    margin-left: 65px;
+    }
+    #caput {
+    width: auto;
+    margin-left: 125px;
+    padding-left: 15px;
+    }
+    .form_button {
+    width: 200px;
+    height: 38px;
+    font-size: 16px;
+    margin-left: 90px;
+
+    }
+    .input-box #hideIcon {
+    right: -60px;
+    }
+    #refresh {
+    left: 240px;
+    }
+    .forgetBtn{
+    right: -60px;
+    font-size: 12px;
+    }
+    .form {
+    width: 22em;
+    }
+}
+@media (min-width: 376px) and (max-width: 425px) {
+
+#firstsec {
+    height: auto;
+    }
+.companyLogo {
+    width: 130px;
+}
+.title {
+    font-size: 19px;
+    line-height: 32px;
+    top: 65px;
+    left: 0;
+    text-align : center;
+}
+.manimg {
+    width: 130px;
+     height: auto;
+    left: 135px;
+    position: relative;
+    top: 67px;
+}
+.login_form {
+height : auto;
+display: block;
+}
+.loginHeading {
+    font-size: 20px;
+    line-height: 21px;
+    bottom: 13px;
+}
+.input-box input {
+    height: 48px;
+    margin-left: 90px;
+    width: auto;
+}
+.input-box label {
+    margin-left: 90px;
+    }
+    #caput {
+    width: auto;
+    margin-left: 165px;
+    padding-left: 15px;
+    }
+    .form_button {
+    width: 200px;
+    height: 38px;
+    font-size: 16px;
+    margin-left: 115px;
+
+    }
+    .input-box #hideIcon {
+    right: -33px;
+    }
+    #refresh {
+    left: 280px;
+    }
+    .forgetBtn{
+    right: -60px;
+    font-size: 12px;
+    }
+    .form {
+    width: 25em;
+    }
+}
+@media (min-width: 426px) and (max-width: 768px) {
+
+#firstsec {
+    height: auto;
+    }
+.companyLogo {
+    width: 130px;
+}
+.title {
+    font-size: 24px;
+    line-height: 32px;
+    top: 35px;
+    left: 0;
+    text-align : center;
+}
+.manimg {
+    width: 230px;
+    height: auto;
+    left: 275px;
+    position: relative;
+    top: 35px;
+}
+.login_form {
+height : auto;
+display: block;
+}
+.loginHeading {
+    font-size: 20px;
+    line-height: 21px;
+    bottom: 13px;
+}
+.input-box input {
+    height: 48px;
+    margin-left:0px;
+    width: auto;
+    width : 430px
+}
+.input-box label {
+    margin-left: 0px;
+    }
+    #caput {
+    width: 235px;
+    margin-left: 70px;
+    padding-left: 15px;
+    }
+    .form_button {
+    width: 430px;
+    height: 38px;
+    font-size: 16px;
+    margin-left: 0px;
+
+    }
+    .input-box #hideIcon {
+    right: -90px;
+    }
+    #refresh {
+    left: 315px;
+    }
+    .forgetBtn{
+    right: -100px;
+    font-size: 14px;
+    }
+    .form {
+    width: 48em;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px){
+.title {
+    font-size: 36px;
+    line-height: 53px;
+    top: 90px;
+    left: 42px;
+}
+.manimg {
+    width: 445px;
+     height: auto;
+    left: 43px;
+    }
+}

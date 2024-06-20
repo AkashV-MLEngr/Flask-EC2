@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title> Mtop - Login </title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/preloader.css">
+
+    <script src="/static/js/disable_rc.js"></script>
+    <link rel="icon" type="image/x-icon" href="/static/images/fav.ico">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/cbf16b0f44.js"></script>
+    <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+          rel="stylesheet"/>
+    <!-- font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{{ url_for('static', filename='disable_rc.js') }}"></script>
+            <!-- font -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<style>
+body{
+  font-family: 'Montserrat';
+}
+.loginBtn{
+ transition : 0.3s
+}
+.loginBtn:hover{
+ background-color: #1ac2ff;
+ color: #fff;
+ transition : 0.3s
+}
+
+
+</style>
+<body onload="createCaptcha()">
+
+<div class="container-fluid">
+            <!--preloader start-->
+<div class="preloader-wrapper">
+  <div class="preloader"></div>
+</div>
+
+<!--preloader end-->
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12" id="firstsec">
+            <img alt="" class="companyLogo" src="{{ url_for('static', filename='images/company_logo.png') }}">
+            <h2 class="title">Explore the Next-Gen Healthcare Training </h2>
+            <img alt="" class="manimg" src="{{ url_for('static', filename='images/login_img.png') }}">
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+
+            <div class="login_form">
+
+                <form action="/login_success" autocomplete="off" class="form" method="post"
+                      onsubmit="return validateCaptcha();" id="formId">
+                    <div class="custom-alert text-danger" id="customAlert" style="position:relative; bottom:10px;"></div>
+                    {%with messages = get_flashed_messages()%}
+            {%if messages%}
+            {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <button aria-label="close" class="btn-close" data-bs-dismiss="alert" id="cls_btn" type="button">
+                    <span aria-hidden="true"></span>
+                </button>
+                {{message}}
+            </div>
+            {%endfor%}
+            {%endif%}
+            {%endwith%}
+
+                    <div class="container">
+
+                        <h2 class="loginHeading text-center">Login</h2>
+
+                        <div class="input-box">
+                            <input id="user" name="username" required spellcheck="false" type="text">
+                            <label for="user">User name</label>
+                        </div>
+                        <div class="input-box mt-4">
+                            <input id="pswd" name="password" required spellcheck="false" type="password">
+                            <label for="pswd">Password</label>
+                            <i class="uil uil-eye-slash toggle" id="hideIcon"></i>
+                        </div>
+                        <div class="input-box mt-3">
+                            <div id="caput">
+                                <span id="captcha"></span>
+                            </div>
+                            <button class="btn btn-success" id="refresh" onclick="refreshCaptcha()" type="button"><span
+                                    class="material-symbols-outlined arrowrotate">
+                                cached
+                                </span></button>
+                        </div>
+                        <div class="input-box mt-3">
+<!--                            <input id="cpatchaTextBox" required spellcheck="false" type="text">-->
+                            <label for="captcha">Captcha</label>
+                        </div>
+                        <a class="float-end forgetBtn" href="#">Forgot
+                            password ?</a>
+                        <div>
+                            <button class="form_button loginBtn" type="submit">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script crossorigin="anonymous"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const toggle = document.querySelector(".toggle"),
+              input = document.getElementById("pswd");
+              toggle.addEventListener("click", () =>{
+                  if(input.type ==="password"){
+                    input.type = "text";
+                    toggle.classList.replace("uil-eye-slash", "uil-eye");
+                  }else{
+                    input.type = "password";
+                    toggle.classList.replace("uil-eye", "uil-eye-slash");
+                  }
+              })
+var code;
+    function createCaptcha() {
+        //clear the contents of captcha div first
+        document.getElementById('captcha').innerHTML = "";
+        var charsArray =
+            "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*~`()_-{}<>[]";
+        var caplength = 6;
+        var captcha = [];
+        for (var i = 0; i < caplength; i++) {
+            //below code will not allow Repetition of Characters
+            var index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
+            if (captcha.indexOf(charsArray[index]) == -1)
+                captcha.push(charsArray[index]);
+            else i--;
+        }
+        var canv = document.createElement("canvas");
+        canv.id = "captcha";
+        canv.width = 90;
+        canv.height = 40;
+        var ctx = canv.getContext("2d");
+        ctx.fillStyle = "gray";
+        ctx.font = "20px Georgia";
+        ctx.fillText(captcha.join(""), 0, 30);
+        //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+        code = captcha.join("");
+        document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
+    }
+    function refreshCaptcha() {
+            createCaptcha();
+        }
+
+
+function showCustomAlert(message) {
+    var customAlert = document.getElementById('customAlert');
+    customAlert.textContent = message;
+    customAlert.style.display = 'block';
+
+    setTimeout(function() {
+        customAlert.style.display = 'none';
+    }, 3000); // Hide after 3 seconds (5000 milliseconds)
+}
+
+function validateCaptcha() {
+    var captchaInput = document.getElementById("cpatchaTextBox").value;
+
+    if (captchaInput === "") {
+        showCustomAlert("Please enter the captcha.");
+        return false; // Prevent form submission
+    } else if (captchaInput !== code) {
+        showCustomAlert("Invalid Captcha. Please try again.");
+        createCaptcha(); // Generate a new captcha
+        document.getElementById("cpatchaTextBox").value = ""; // Clear the captcha input field
+        return false; // Prevent form submission
+    }
+
+    // If the captcha is correct, allow form submission
+    return true;
+}
+
+</script>
+
+<!--preloader script-->
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('formId').addEventListener('submit', function(event) {
+        var preloader = document.querySelector('.preloader-wrapper');
+        preloader.style.display = 'block';
+
+        setTimeout(function() {
+            preloader.style.display = 'none';
+        }, 5000);
+    });
+});
+
+</script>
+</body>
+</html>
